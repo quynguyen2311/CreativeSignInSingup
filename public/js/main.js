@@ -43,3 +43,16 @@ for(let i = 0; i < myAnchors.length; i++){
         },1800);
     })
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const title = document.querySelector(".fade-in");
+
+    // Nếu từ trang khác quay lại, reset hiệu ứng
+    if (localStorage.getItem("resetEffect") === "true") {
+        localStorage.removeItem("resetEffect"); // Xóa để tránh lặp lại lần sau
+        title.classList.remove("active"); // Reset trạng thái về ban đầu
+        setTimeout(() => title.classList.add("active"), 10); // Kích hoạt lại hiệu ứng
+    } else {
+        title.classList.add("active");
+    }
+});
